@@ -22,13 +22,6 @@ export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 
-export function randomColor() {
-  const res = [];
-  for (let i = 0; i < 3; i++) {
-    res.push(random(0, 255));
-  }
-  return `rgb(${res.join(',')})`;
-}
 
 export function addMultipleEventListener(
   element,
@@ -42,6 +35,15 @@ export function addMultipleEventListener(
 export function removeMultipleEventListener(element, events, handler) {
   events.forEach((el) => element.removeEventListener(el, handler));
 }
+
+export function randomColor() {
+  const res = [];
+  for (let i = 0; i < 3; i++) {
+    res.push(random(0, 255));
+  }
+  return `rgb(${res.join(',')})`;
+}
+
 
 export function createTag(tag = 'div', txt = '', attributes = {}, parent = {}) {
   const element = document.createElement(tag);
@@ -107,4 +109,9 @@ export function handleMenuClick(event, menuModules, menuHTML) {
 //#endregion
 
 //#region Trash
+/*
+  Additional menu checks
+  const module = Object.keys(menuModules).find((key) => key === datatype); 
+  if (menuModules[datatype]) 
+*/
 //#endregion
