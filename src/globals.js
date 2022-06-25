@@ -12,7 +12,7 @@ export const MENU_SELECTOR = '#menu';
 export const ELEMENTS = [
   {
     name: 'clicks',
-    text: 'Считать клики (за&nbsp;7&nbsp;секунд)',
+    text: 'Считать клики (за&nbsp;4&nbsp;секунды)',
     type: ClicksModule,
   },
   {

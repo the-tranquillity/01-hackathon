@@ -17,11 +17,62 @@ export class ElementsFactory {
 }
 //#endregion
 
-//#region Functions
+//#region Common Functions
 export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 
+export function addMultipleEventListener(
+  element,
+  events,
+  handler,
+  options = { once: false }
+) {
+  events.forEach((el) => element.addEventListener(el, handler, options));
+}
+
+export function removeMultipleEventListener(element, events, handler) {
+  events.forEach((el) => element.removeEventListener(el, handler));
+}
+
+export function createTag(tag = 'div', txt = '', attributes = {}, parent = {}) {
+  const element = document.createElement(tag);
+  element.innerText = txt;
+  Object.entries(attributes).forEach(([key, value]) => {
+    element.setAttribute(`${key}`, value);
+  });
+  if (parent instanceof HTMLElement) parent.append(element);
+  return element;
+}
+//#endregion
+
+//#region ClicksModule
+export function clicksStatAdd(event, clicksArray) {
+  clicksArray.push({
+    type: event.type,
+    time: Date.now(),
+    x: event.x,
+    y: event.y,
+  });
+}
+
+export function clicksDrawClick(event) {
+  const element = createTag(
+    'div',
+    '',
+    {
+      class: 'clicksCssDrawClick',
+      style: `left:${event.x - 20}px; top:${event.y - 20}px`,
+    },
+    document.body
+  );
+  setTimeout(() => {
+    element.remove();
+  }, 1400);
+}
+//#endregion
+
+//#region Menu Functions
 export function handleMenuClick(event, menuModules, menuHTML) {
   const [datatype, isMenuChild] = [
     event.target?.dataset?.type,
@@ -31,24 +82,15 @@ export function handleMenuClick(event, menuModules, menuHTML) {
   // Возможно, проверка лишняя
   if (!datatype || !isMenuChild) return false;
 
-  const module = Object.keys(menuModules).find((key) => key === datatype);
   menuHTML.classList.remove(OPEN_CLASS);
-  if (menuModules[module]) menuModules[module].trigger();
-}
-
-export function statAddClick(event, arr) {
-  arr.push({
-    type: event.type,
-    time: Date.now(),
-    x: event.x,
-    y: event.y,
-  });
-}
-
-export function addMultipleEventListener(element, events, handler) {
-  events.forEach((e) => element.addEventListener(e, handler));
+  menuModules[datatype].trigger();
 }
 //#endregion
 
 //#region Trash
+/*
+  Additional menu checks
+  const module = Object.keys(menuModules).find((key) => key === datatype); 
+  if (menuModules[datatype]) 
+*/
 //#endregion
