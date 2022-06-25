@@ -22,13 +22,12 @@ export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 
-export function getRandomColor () {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-        color += letters[random(0, 15)];
-    }
-    return color;
+export function randomColor() {
+  const res = [];
+  for (let i = 0; i < 3; i++) {
+    res.push(random(0, 255));
+  }
+  return `rgb(${res.join(',')})`;
 }
 
 export function addMultipleEventListener(
@@ -81,6 +80,17 @@ export function clicksDrawClick(event) {
 }
 //#endregion
 
+//#region BackgroundModule
+export function getRandomHexColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[random(0, 15)];
+  }
+  return color;
+}
+//#endregion
+
 //#region Menu Functions
 export function handleMenuClick(event, menuModules, menuHTML) {
   const [datatype, isMenuChild] = [
@@ -97,9 +107,4 @@ export function handleMenuClick(event, menuModules, menuHTML) {
 //#endregion
 
 //#region Trash
-/*
-  Additional menu checks
-  const module = Object.keys(menuModules).find((key) => key === datatype); 
-  if (menuModules[datatype]) 
-*/
 //#endregion
