@@ -25,6 +25,7 @@ menuHTML.addEventListener('click', (event) => {
   document
     .querySelectorAll(`body > *:not(${MENU_SELECTOR})`)
     .forEach((e) => e.remove());
+  //добавить сброс листнеров
   handleMenuClick(event, menuModules, menuHTML);
 });
 //#endregion

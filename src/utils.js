@@ -92,15 +92,22 @@ export function getRandomHexColor() {
 //#endregion
 
 //#region TimerModule
-export function timerTickHandler(waitMs, displayer, container) {
-  let displayTime = new Date(waitMs - 10800000);
-  displayer.textContent = displayTime.toString().slice(16, 24);
-
-  if (!waitMs) {
-    container.remove();
+export function timerTickHandler(seconds, displayer, container) {
+  if (!seconds) {
+    displayer.textContent = 'Time is up!';
+    setTimeout(() => container.remove(), 2000);
     return;
   }
-  setTimeout(timerTickHandler, 1000, waitMs - 1000, displayer, container);
+  console.log('tick');
+  let hr = Math.floor(seconds / 3600);
+  hr = hr < 10 ? `0${hr}` : hr;
+  let min = Math.floor(seconds / 60 - Math.floor(seconds / 3600) * 60);
+  min = min < 10 ? `0${min}` : min;
+  let sec = Math.floor(seconds - Math.floor(seconds / 60) * 60);
+  sec = sec < 10 ? `0${sec}` : sec;
+  displayer.textContent = `${hr}:${min}:${sec}`;
+
+  setTimeout(timerTickHandler, 1000, seconds - 1, displayer, container);
 }
 //#endregion
 

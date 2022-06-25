@@ -41,6 +41,7 @@ export const ELEMENTS = [
 export const timerElements = [
   {
     tag: 'form',
+    name: 'form',
     content: '',
     attr: {
       class: 'timer-input_form',
@@ -49,19 +50,47 @@ export const timerElements = [
   },
   {
     tag: 'input',
+    name: 'hr',
     content: '',
     attr: {
-      id: 'timer-input',
-      type: 'time',
-      step: '1',
-      value: '00:00:00',
-      name: 'timerInput',
+      name: 'hours',
+      type: 'number',
+      min: '0',
+      max: '23',
+      value: '0',
+    },
+    parent: 'form',
+  },
+  {
+    tag: 'input',
+    name: 'min',
+    content: '',
+    attr: {
+      name: 'minutes',
+      type: 'number',
+      min: '0',
+      max: '59',
+      value: '0',
+    },
+    parent: 'form',
+  },
+  {
+    tag: 'input',
+    name: 'sec',
+    content: '',
+    attr: {
+      name: 'seconds',
+      type: 'number',
+      min: '0',
+      max: '59',
+      value: '0',
     },
     parent: 'form',
   },
   {
     tag: 'button',
-    content: 'Старт',
+    content: 'Start',
+    name: 'submit',
     attr: {
       class: 'timer-button',
       type: 'submit',
@@ -70,7 +99,8 @@ export const timerElements = [
   },
   {
     tag: 'button',
-    content: 'Отмена',
+    content: 'Cancel',
+    name: 'cancel',
     attr: {
       class: 'canсel-button',
       type: 'button',
@@ -79,6 +109,7 @@ export const timerElements = [
   },
   {
     tag: 'span',
+    name: 'shower',
     content: '',
     attr: {
       class: 'timer-span hidden',
