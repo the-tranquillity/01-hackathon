@@ -18,12 +18,12 @@ export class ClicksModule extends Module {
       clicksStatHandler
     );
 
-    const response = async (waitMs) =>
+    const clicksResponse = async (waitMs) =>
       new Promise((resolve) =>
         setTimeout(() => resolve(clicksResult(clicks)), waitMs)
       );
 
-    const result = await response(4000);
+    const result = await clicksResponse(4000);
 
     return result;
 
