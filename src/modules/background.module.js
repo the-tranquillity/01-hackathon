@@ -1,8 +1,10 @@
+//#region Import
+import { getRandomHexColor } from '../utils';
 import { Module } from '../core/module';
-import { randomColor } from '../utils';
+//#endregion
+
 export class BackgroundModule extends Module {
   trigger() {
-    console.log('trigger BackgroundModule init');
-    document.body.style.backgroundColor = randomColor();
+    document.body.style.background = getRandomHexColor();
   }
 }
