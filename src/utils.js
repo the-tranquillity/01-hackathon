@@ -72,6 +72,16 @@ export function clicksDrawClick(event) {
 }
 //#endregion
 
+//#region BackgroundModule
+export function randomColor() {
+  const res = [];
+  for (let i = 0; i < 3; i++) {
+    res.push(random(0, 255));
+  }
+  return `rgb(${res.join(',')})`;
+}
+//#endregion
+
 //#region Menu Functions
 export function handleMenuClick(event, menuModules, menuHTML) {
   const [datatype, isMenuChild] = [
