@@ -91,26 +91,6 @@ export function getRandomHexColor() {
 }
 //#endregion
 
-//#region TimerModule
-export function timerTickHandler(seconds, displayer, container) {
-  if (!seconds) {
-    displayer.textContent = 'Time is up!';
-    setTimeout(() => container.remove(), 2000);
-    return;
-  }
-  console.log('tick');
-  let hr = Math.floor(seconds / 3600);
-  hr = hr < 10 ? `0${hr}` : hr;
-  let min = Math.floor(seconds / 60 - Math.floor(seconds / 3600) * 60);
-  min = min < 10 ? `0${min}` : min;
-  let sec = Math.floor(seconds - Math.floor(seconds / 60) * 60);
-  sec = sec < 10 ? `0${sec}` : sec;
-  displayer.textContent = `${hr}:${min}:${sec}`;
-
-  setTimeout(timerTickHandler, 1000, seconds - 1, displayer, container);
-}
-//#endregion
-
 //#region Menu Functions
 export function handleMenuClick(event, menuModules, menuHTML) {
   const [datatype, isMenuChild] = [
