@@ -2,6 +2,6 @@ import { Module } from '../core/module';
 
 export class TimerModule extends Module {
   trigger() {
-    console.log('trigger TimerModule');
+    console.log('trigger TimerModule init');
   }
 }
