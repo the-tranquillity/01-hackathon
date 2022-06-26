@@ -144,10 +144,10 @@ export function splashScreen() {
    class:'splash-screen flex items-center justify-center'
   }, document.body)
   // prettier-ignore
-  const splashText = createTag('div','TEAM-25-1', {
+  const splashText = createTag('div','TEAM 25-1', {
     class:'splash-text glitch-text'
    }, splashWrapper)
-  splashText.dataset.text = 'TEAM-25-1';
+  splashText.dataset.text = 'TEAM 25-1';
   splashText.setAttribute('style', `width:${splashText.offsetWidth + 3}px`);
   splashText.style.visibility = 'visible';
   setTimeout(() => {

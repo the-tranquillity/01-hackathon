@@ -32,7 +32,6 @@ const nav = createTag(
 nav.innerHTML = NAVBAR;
 
 document.querySelector('.btn-theme').addEventListener('click', (event) => {
-  //if ('changeTheme' in event.target.dataset) {}
   changeTheme();
 });
 
@@ -54,5 +53,4 @@ menuHTML.addEventListener('click', (e) => {
     .forEach((e) => e.remove());
   handleMenuClick(e, menuModules, menuHTML);
 });
-
 //#endregion
