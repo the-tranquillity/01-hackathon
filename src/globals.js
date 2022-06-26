@@ -10,7 +10,7 @@ import { SoundsModule } from './modules/sounds.module';
 //#region Basic Constants
 export const OPEN_CLASS = 'open';
 export const MENU_SELECTOR = '#menu';
-export const TOAST_DURATION = 8000;
+export const TOAST_DURATION = 6000;
 export const ELEMENTS = [
   {
     name: 'clicks',
@@ -262,3 +262,12 @@ export const MOD_MSG_MESSAGES = [
   'Лучшее время, чтобы посадить дерево, было 20 лет назад. Следующий подходящий момент - сегодня. - Китайская пословица',
   'Быстрее всего учишься в трех случаях — до 7 лет, на тренингах, и когда жизнь загнала тебя в угол. - Стивен Кови',
 ];
+
+export const NAVBAR = `
+<div class="flex-1">
+  <a class="team-logo btn btn-ghost no-animation normal-case text-xl">TEAM 25-1</a>
+</div>
+<div class="flex-none">
+  <button class="btn-theme btn btn-square btn-ghost" data-change-theme><i class="bi bi-sun-fill" style="font-size: 1.2rem;"></i></button>
+</div>
+`;

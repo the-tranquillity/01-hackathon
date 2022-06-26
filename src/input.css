@@ -8,6 +8,7 @@
     font-family: 'Nunito Sans', sans-serif !important;
   }
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -65,6 +66,16 @@ body {
   transform-origin: left;
 }
 
+.btn-theme,
+.btn-theme:hover,
+.team-logo,
+.team-logo:hover {
+  background: transparent !important;
+}
+.team-logo,
+.team-logo:hover {
+  cursor: default;
+}
 .modal-button[for='hk-modal'] {
   display: none;
 }

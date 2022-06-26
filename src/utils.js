@@ -52,6 +52,37 @@ export function createTag(tag = 'div', txt = '', attributes = {}, parent = {}) {
   if (parent instanceof HTMLElement) parent.append(element);
   return element;
 }
+
+export function themeInit() {
+  if (
+    localStorage.getItem('theme') === 'dark' ||
+    localStorage.getItem('theme') === null
+  ) {
+    document.querySelector('html').dataset.theme = 'dark';
+  } else {
+    document.querySelector('html').dataset.theme = 'light';
+  }
+}
+
+export function changeTheme() {
+  let text = '';
+  if (
+    localStorage.getItem('theme') === 'dark' ||
+    localStorage.getItem('theme') === null
+  ) {
+    localStorage.setItem('theme', 'light');
+    document.querySelector('html').dataset.theme = 'light';
+    text = 'moon';
+  } else {
+    localStorage.setItem('theme', 'dark');
+    document.querySelector('html').dataset.theme = 'dark';
+    text = 'sun';
+    //bi bi-moon-fill
+  }
+  const icon = document.querySelector('.btn-theme i');
+  icon.classList.remove();
+  icon.setAttribute('class', `bi bi-${text}-fill`);
+}
 //#endregion
 
 //#region ClicksModule

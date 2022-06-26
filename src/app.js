@@ -1,14 +1,32 @@
 //#region Import
 import './output.css';
 import { ContextMenu } from './menu';
-import { MENU_SELECTOR, ELEMENTS } from './globals';
-import { ElementsFactory, handleMenuClick } from './utils';
+import { MENU_SELECTOR, ELEMENTS, NAVBAR } from './globals';
+import {
+  ElementsFactory,
+  handleMenuClick,
+  createTag,
+  changeTheme,
+  themeInit,
+} from './utils';
 //#endregion
 
+themeInit();
 //#region Constants
 const menu = new ContextMenu(MENU_SELECTOR);
 const menuHTML = document.querySelector(MENU_SELECTOR);
 const menuModules = ElementsFactory.createInstances(ELEMENTS);
+// prettier-ignore
+const nav = createTag('div', '', {
+    class: 'navbar rounded-box bg-base-300',
+  },document.body);
+nav.innerHTML = NAVBAR;
+
+document.querySelector('.btn-theme').addEventListener('click', (event) => {
+  //if ('changeTheme' in event.target.dataset) {}
+  changeTheme();
+});
+
 //#endregion
 
 //#region ExecCode
@@ -23,7 +41,7 @@ document.body.addEventListener('contextmenu', (event) => {
 
 menuHTML.addEventListener('click', (e) => {
   document
-    .querySelectorAll(`body > *:not(${MENU_SELECTOR})`)
+    .querySelectorAll(`body > *:not(${MENU_SELECTOR}):not(.navbar)`)
     .forEach((e) => e.remove());
   handleMenuClick(e, menuModules, menuHTML);
 });
