@@ -11,6 +11,10 @@ import {
   splashScreen,
 } from './utils';
 //#endregion
+function importAll(r) {
+  r.keys().forEach(r);
+}
+importAll(require.context('./assets', true, /\.mp3$/));
 
 themeInit();
 //#region Constants

@@ -59,6 +59,18 @@ module.exports = (env, argv) => {
             },
           },
         },
+        {
+          test: /\.mp3$/i,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                outputPath: 'src/assets/audio/',
+                name: '[name].[ext]',
+              },
+            },
+          ],
+        },
       ],
     },
   };
