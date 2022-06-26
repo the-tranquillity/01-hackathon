@@ -1,7 +1,9 @@
 import { Module } from '../core/module';
+import { random, randomColor, createTag } from '../utils';
 
 export class ShapeModule extends Module {
   trigger() {
+
 
     const figures = ['circle', 'square', 'triangle', 'cross', 'frame', 'star', 'arrow'];
 
@@ -51,3 +53,4 @@ export class ShapeModule extends Module {
     createRandomShape(figures[getRandomNumber(0, 6)]);
   };
 };
+

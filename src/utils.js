@@ -1,5 +1,5 @@
 //#region Import
-import { OPEN_CLASS } from './globals';
+import { OPEN_CLASS, MENU_SELECTOR } from './globals';
 //#endregion
 
 //#region Classes
@@ -20,6 +20,14 @@ export class ElementsFactory {
 //#region Common Functions
 export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
+}
+
+export function randomColor() {
+  const res = [];
+  for (let i = 0; i < 3; i++) {
+    res.push(random(0, 255));
+  }
+  return `rgb(${res.join(',')})`;
 }
 
 export function addMultipleEventListener(
@@ -72,11 +80,22 @@ export function clicksDrawClick(event) {
 }
 //#endregion
 
+//#region BackgroundModule
+export function getRandomHexColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[random(0, 15)];
+  }
+  return color;
+}
+//#endregion
+
 //#region Menu Functions
 export function handleMenuClick(event, menuModules, menuHTML) {
   const [datatype, isMenuChild] = [
-    event.target?.dataset?.type,
-    event.target.offsetParent === menuHTML,
+    event.target?.parentNode?.dataset?.type,
+    event.target.closest(MENU_SELECTOR) === menuHTML,
   ];
 
   // Возможно, проверка лишняя
@@ -85,6 +104,20 @@ export function handleMenuClick(event, menuModules, menuHTML) {
   menuHTML.classList.remove(OPEN_CLASS);
   menuModules[datatype].trigger();
 }
+//#endregion
+
+//#region Modal test
+/* function makeModal() {
+const modalDom = {};
+      // prettier-ignore
+      MODAL_ELEMENTS.forEach((e) => (modalDom[e.name] = createTag(
+       e.tag, e.content, e.attr, e.parent ? document.body : null)));
+      modalDom.modal.append(modalDom.container);
+      modalDom.container.append(modalDom.close);
+      modalDom.checkbox.checked = true;
+      modalDom.close.onclick = modalQuit;
+} */
+
 //#endregion
 
 //#region Trash

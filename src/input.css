@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    font-family: 'Nunito Sans', sans-serif !important;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  transition-property: background;
+  transition-duration: 1.8s;
+}
+
+.menu {
+  position: fixed;
+  z-index: 1000;
+  display: none;
+  background: #1b1a1a;
+}
+
+.menu.open {
+  display: block;
+}
+
+.clicksCssDrawClick {
+  position: absolute;
+  z-index: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999em;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  animation: clicksCssDrawClickAnim 1.5s ease-in-out;
+}
+
+.alert {
+  animation: appear 0.4s normal forwards ease-in-out;
+}
+.modal-button[for='hk-modal'] {
+  display: none;
+}
+input.input-timer {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes clicksCssDrawClickAnim {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
