@@ -51,6 +51,9 @@ body {
 .modal-button[for='hk-modal'] {
   display: none;
 }
+input.input-timer {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
 @keyframes appear {
   from {
     opacity: 0;

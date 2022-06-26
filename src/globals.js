@@ -113,7 +113,7 @@ export const MODAL_ELEMENTS = [
     name: 'container',
     content: '',
     attr: {
-      class: 'modal-box relative',
+      class: 'modal-box relative pt-12',
     },
     parent: null,
   },
@@ -130,15 +130,24 @@ export const MODAL_ELEMENTS = [
   },
 ];
 //#endregion
-export const timerElements = [
+export const TIMER_ELEMENTS = [
   {
     tag: 'form',
     name: 'form',
     content: '',
     attr: {
-      class: 'timer-input_form',
+      class: 'form-control',
     },
-    parent: 'cont',
+    parent: null,
+  },
+  {
+    tag: 'span',
+    name: 'lhr',
+    content: 'hr',
+    attr: {
+      class: 'uppercase',
+    },
+    parent: 'form',
   },
   {
     tag: 'input',
@@ -149,7 +158,18 @@ export const timerElements = [
       type: 'number',
       min: '0',
       max: '23',
+      placeholder: 'Hours',
       value: '0',
+      class: 'input input-timer input-group input-group-md',
+    },
+    parent: 'form',
+  },
+  {
+    tag: 'span',
+    name: 'lmin',
+    content: 'min',
+    attr: {
+      class: 'uppercase',
     },
     parent: 'form',
   },
@@ -162,7 +182,18 @@ export const timerElements = [
       type: 'number',
       min: '0',
       max: '59',
+      placeholder: 'Minutes',
       value: '0',
+      class: 'input input-timer input-group input-group-md',
+    },
+    parent: 'form',
+  },
+  {
+    tag: 'span',
+    name: 'lsec',
+    content: 'sec',
+    attr: {
+      class: 'uppercase',
     },
     parent: 'form',
   },
@@ -175,7 +206,9 @@ export const timerElements = [
       type: 'number',
       min: '0',
       max: '59',
+      placeholder: 'Seconds',
       value: '0',
+      class: 'input input-timer input-group input-group-md',
     },
     parent: 'form',
   },
@@ -184,18 +217,18 @@ export const timerElements = [
     content: 'Start',
     name: 'submit',
     attr: {
-      class: 'timer-button',
+      class: 'btn btn-primary',
       type: 'submit',
     },
     parent: 'form',
   },
   {
-    tag: 'span',
+    tag: 'div',
     name: 'shower',
     content: '',
     attr: {
-      class: 'timer-span hidden',
+      class: 'grid grid-flow-col gap-5 text-center auto-cols-max hidden',
     },
-    parent: 'cont',
+    parent: null,
   },
 ];
