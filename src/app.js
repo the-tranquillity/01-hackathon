@@ -1,5 +1,5 @@
 //#region Import
-import './styles.css';
+import './output.css';
 import { ContextMenu } from './menu';
 import { MENU_SELECTOR, ELEMENTS } from './globals';
 import { ElementsFactory, handleMenuClick } from './utils';
@@ -21,10 +21,12 @@ document.body.addEventListener('contextmenu', (event) => {
   menu.open(event);
 });
 
-menuHTML.addEventListener('click', (event) => {
+menuHTML.addEventListener('click', (e) => {
   document
     .querySelectorAll(`body > *:not(${MENU_SELECTOR})`)
     .forEach((e) => e.remove());
-  handleMenuClick(event, menuModules, menuHTML);
+  handleMenuClick(e, menuModules, menuHTML);
 });
+
 //#endregion
+//$("body").on("click", "a", function(e) { e.preventDefault() });

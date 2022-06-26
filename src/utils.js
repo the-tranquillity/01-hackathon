@@ -1,5 +1,5 @@
 //#region Import
-import { OPEN_CLASS } from './globals';
+import { OPEN_CLASS, MENU_SELECTOR } from './globals';
 //#endregion
 
 //#region Classes
@@ -22,6 +22,7 @@ export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 
+
 export function randomColor() {
   const res = [];
   for (let i = 0; i < 3; i++) {
@@ -29,6 +30,7 @@ export function randomColor() {
   }
   return `rgb(${res.join(',')})`;
 }
+
 
 export function addMultipleEventListener(
   element,
@@ -94,8 +96,8 @@ export function getRandomHexColor() {
 //#region Menu Functions
 export function handleMenuClick(event, menuModules, menuHTML) {
   const [datatype, isMenuChild] = [
-    event.target?.dataset?.type,
-    event.target.offsetParent === menuHTML,
+    event.target?.parentNode?.dataset?.type,
+    event.target.closest(MENU_SELECTOR) === menuHTML,
   ];
 
   // Возможно, проверка лишняя
@@ -107,4 +109,9 @@ export function handleMenuClick(event, menuModules, menuHTML) {
 //#endregion
 
 //#region Trash
+/*
+  Additional menu checks
+  const module = Object.keys(menuModules).find((key) => key === datatype); 
+  if (menuModules[datatype]) 
+*/
 //#endregion
