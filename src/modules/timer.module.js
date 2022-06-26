@@ -92,7 +92,7 @@ export class TimerModule extends Module {
     function timerTickHandler(seconds, checkWorking) {
       if (!seconds)
         timerDom.shower.innerHTML =
-          '<h3 class="text-lg font-bold text-primary-content">Time is up!</h3>';
+          '<h3 class="text-lg font-bold">Time is up!</h3>';
       //timerDom.shower.textContent = 'Time is up!';
       if (!seconds || !checkWorking()) {
         quit();
