@@ -137,24 +137,25 @@ export function handleMenuClick(event, menuModules, menuHTML) {
 }
 //#endregion
 
-//#region Modal test
-/* function makeModal() {
-const modalDom = {};
-      // prettier-ignore
-      MODAL_ELEMENTS.forEach((e) => (modalDom[e.name] = createTag(
-       e.tag, e.content, e.attr, e.parent ? document.body : null)));
-      modalDom.modal.append(modalDom.container);
-      modalDom.container.append(modalDom.close);
-      modalDom.checkbox.checked = true;
-      modalDom.close.onclick = modalQuit;
-} */
-
+//#region plashScreen
+export function splashScreen() {
+  // prettier-ignore
+  const splashWrapper = createTag('div','', {
+   class:'splash-screen flex items-center justify-center'
+  }, document.body)
+  // prettier-ignore
+  const splashText = createTag('div','TEAM-25-1', {
+    class:'splash-text glitch-text'
+   }, splashWrapper)
+  splashText.dataset.text = 'TEAM-25-1';
+  splashText.setAttribute('style', `width:${splashText.offsetWidth + 3}px`);
+  splashText.style.visibility = 'visible';
+  setTimeout(() => {
+    splashWrapper.remove();
+  }, 5200);
+}
 //#endregion
 
 //#region Trash
-/*
-  Additional menu checks
-  const module = Object.keys(menuModules).find((key) => key === datatype); 
-  if (menuModules[datatype]) 
-*/
+
 //#endregion

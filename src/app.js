@@ -8,6 +8,7 @@ import {
   createTag,
   changeTheme,
   themeInit,
+  splashScreen,
 } from './utils';
 //#endregion
 
@@ -17,9 +18,17 @@ const menu = new ContextMenu(MENU_SELECTOR);
 const menuHTML = document.querySelector(MENU_SELECTOR);
 const menuModules = ElementsFactory.createInstances(ELEMENTS);
 // prettier-ignore
-const nav = createTag('div', '', {
+
+splashScreen()
+
+const nav = createTag(
+  'div',
+  '',
+  {
     class: 'navbar rounded-box bg-base-300',
-  },document.body);
+  },
+  document.body
+);
 nav.innerHTML = NAVBAR;
 
 document.querySelector('.btn-theme').addEventListener('click', (event) => {
