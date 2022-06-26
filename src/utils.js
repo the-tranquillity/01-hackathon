@@ -151,7 +151,7 @@ export function splashScreen() {
   splashText.style.visibility = 'visible';
   setTimeout(() => {
     splashWrapper.remove();
-  }, 520000);
+  }, 5200);
 }
 //#endregion
 
