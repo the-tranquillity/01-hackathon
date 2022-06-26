@@ -22,7 +22,6 @@ export function random(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 
-
 export function randomColor() {
   const res = [];
   for (let i = 0; i < 3; i++) {
@@ -30,7 +29,6 @@ export function randomColor() {
   }
   return `rgb(${res.join(',')})`;
 }
-
 
 export function addMultipleEventListener(
   element,
@@ -106,6 +104,20 @@ export function handleMenuClick(event, menuModules, menuHTML) {
   menuHTML.classList.remove(OPEN_CLASS);
   menuModules[datatype].trigger();
 }
+//#endregion
+
+//#region Modal test
+/* function makeModal() {
+const modalDom = {};
+      // prettier-ignore
+      MODAL_ELEMENTS.forEach((e) => (modalDom[e.name] = createTag(
+       e.tag, e.content, e.attr, e.parent ? document.body : null)));
+      modalDom.modal.append(modalDom.container);
+      modalDom.container.append(modalDom.close);
+      modalDom.checkbox.checked = true;
+      modalDom.close.onclick = modalQuit;
+} */
+
 //#endregion
 
 //#region Trash

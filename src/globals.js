@@ -190,16 +190,6 @@ export const timerElements = [
     parent: 'form',
   },
   {
-    tag: 'button',
-    content: 'Cancel',
-    name: 'cancel',
-    attr: {
-      class: 'canсel-button',
-      type: 'button',
-    },
-    parent: 'form',
-  },
-  {
     tag: 'span',
     name: 'shower',
     content: '',

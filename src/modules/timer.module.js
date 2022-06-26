@@ -1,13 +1,36 @@
 //#region Import
 import { Module } from '../core/module';
 import { createTag } from '../utils';
-import { timerElements } from '../globals';
+import { timerElements, MODAL_ELEMENTS } from '../globals';
 //#endregion
 
 export class TimerModule extends Module {
   trigger() {
     //#region DOM & vars
     let isWorking = true;
+
+    const modalDom = {};
+    // prettier-ignore
+    MODAL_ELEMENTS.forEach((e) => (modalDom[e.name] = createTag(
+     e.tag, e.content, e.attr, e.parent ? document.body : null)));
+
+    modalDom.modal.append(modalDom.container);
+    modalDom.container.append(modalDom.close);
+    modalDom.checkbox.checked = true;
+    modalDom.close.onclick = quit;
+
+    const timerDom = {};
+    // prettier-ignore
+    timerElements.forEach((e) => (timerDom[e.name] = createTag(
+      e.tag, e.content, e.attr, e.parent === 'cont' 
+      ? modalDom.container : modalDom.container.querySelector('form')
+    )));
+
+    //#region Listners
+    timerDom.form.addEventListener('submit', timerSubmitHandle);
+    //#endregion
+
+    /* 
     // prettier-ignore
     const container = createTag('div','',
     { class: 'timer-container' }, document.body)
@@ -19,12 +42,8 @@ export class TimerModule extends Module {
           ? container : container.querySelector('form')
         ))
     );
-    dom.cancel.onclick = quit;
-    //#endregion
-
-    //#region Listners
-    dom.form.addEventListener('submit', timerSubmitHandle);
-    //#endregion
+    timerDom.cancel.onclick = quit;
+    //#endregion */
 
     //#region Functions
     function timerSubmitHandle(event) {
@@ -41,13 +60,15 @@ export class TimerModule extends Module {
         return;
       }
       const stamp = formTime[0] * 3600 + formTime[1] * 60 + formTime[2];
-      [dom.submit, dom.sec, dom.min, dom.hr].forEach((e) => e.remove());
-      dom.shower.classList.toggle('hidden');
+      [timerDom.submit, timerDom.sec, timerDom.min, timerDom.hr].forEach((e) =>
+        e.remove()
+      );
+      timerDom.shower.classList.toggle('hidden');
       timerTickHandler(stamp, checkWorking);
     }
 
     function timerTickHandler(seconds, checkWorking) {
-      if (!seconds) dom.shower.textContent = 'Time is up!';
+      if (!seconds) timerDom.shower.textContent = 'Time is up!';
       if (!seconds || !checkWorking()) {
         quit();
         return;
@@ -59,13 +80,16 @@ export class TimerModule extends Module {
       min = min < 10 ? `0${min}` : min;
       let sec = Math.floor(seconds - Math.floor(seconds / 60) * 60);
       sec = sec < 10 ? `0${sec}` : sec;
-      dom.shower.textContent = `${hr}:${min}:${sec}`;
+      timerDom.shower.textContent = `${hr}:${min}:${sec}`;
 
       setTimeout(timerTickHandler, 1000, seconds - 1, checkWorking);
     }
     function quit() {
       isWorking = false;
-      setTimeout(() => container.remove(), 1400);
+      // prettier-ignore
+      setTimeout(() => {
+        [modalDom.modal, modalDom.checkbox, modalDom.label].forEach((e) => e.remove())  
+      }, 1400);
     }
 
     function checkWorking() {
