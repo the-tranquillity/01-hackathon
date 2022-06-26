@@ -1,5 +1,5 @@
 //#region Import
-import { OPEN_CLASS } from './globals';
+import { OPEN_CLASS, MENU_SELECTOR } from './globals';
 //#endregion
 
 //#region Classes
@@ -94,8 +94,8 @@ export function getRandomHexColor() {
 //#region Menu Functions
 export function handleMenuClick(event, menuModules, menuHTML) {
   const [datatype, isMenuChild] = [
-    event.target?.dataset?.type,
-    event.target.offsetParent === menuHTML,
+    event.target?.parentNode?.dataset?.type,
+    event.target.closest(MENU_SELECTOR) === menuHTML,
   ];
 
   // Возможно, проверка лишняя
@@ -106,5 +106,24 @@ export function handleMenuClick(event, menuModules, menuHTML) {
 }
 //#endregion
 
+//#region Modal test
+/* function makeModal() {
+const modalDom = {};
+      // prettier-ignore
+      MODAL_ELEMENTS.forEach((e) => (modalDom[e.name] = createTag(
+       e.tag, e.content, e.attr, e.parent ? document.body : null)));
+      modalDom.modal.append(modalDom.container);
+      modalDom.container.append(modalDom.close);
+      modalDom.checkbox.checked = true;
+      modalDom.close.onclick = modalQuit;
+} */
+
+//#endregion
+
 //#region Trash
+/*
+  Additional menu checks
+  const module = Object.keys(menuModules).find((key) => key === datatype); 
+  if (menuModules[datatype]) 
+*/
 //#endregion

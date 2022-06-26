@@ -1,6 +1,8 @@
+//#region Import
 import { Menu } from './core/menu';
 import { Module } from './core/module';
 import { OPEN_CLASS } from './globals';
+//#endregion
 
 export class ContextMenu extends Menu {
   open(event) {
