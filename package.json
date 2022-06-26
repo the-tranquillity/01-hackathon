@@ -6,7 +6,7 @@
   "scripts": {
     "start": "concurrently \"webpack serve --mode=development --open\" \"npx tailwindcss -i ./src/input.css -o ./src/output.css --watch\"",
     "build": "webpack --mode=production",
-    "css": "npx tailwindcss -i ./src/input.css -o ./src/output.css"
+    "css": "npx tailwindcss -i ./src/input.css -o ./src/output.css --minify"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
