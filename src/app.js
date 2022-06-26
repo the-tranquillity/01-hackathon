@@ -1,5 +1,5 @@
 //#region Import
-import './styles.css';
+import './output.css';
 import { ContextMenu } from './menu';
 import { MENU_SELECTOR, ELEMENTS } from './globals';
 import { ElementsFactory, handleMenuClick } from './utils';

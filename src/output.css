@@ -1717,6 +1717,43 @@ html,
   --tw-backdrop-sepia:  ;
 }
 
+.alert {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b2, var(--b1)) / var(--tw-bg-opacity));
+  padding: 1rem;
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.alert > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+@media (min-width: 768px) {
+  .alert {
+    flex-direction: row;
+  }
+
+  .alert > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0px * var(--tw-space-y-reverse));
+  }
+}
+
+.alert > :where(*) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 @-webkit-keyframes spin {
   from {
     transform: rotate(0deg);
@@ -2238,6 +2275,24 @@ html,
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 
+.rounded-box {
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.alert-info {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--in) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: hsl(var(--inc, var(--nc)) / var(--tw-text-opacity));
+}
+
+.menu-compact :where(li > *) {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .static {
   position: static;
 }
@@ -2246,12 +2301,52 @@ html,
   display: table;
 }
 
-.filter {
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+.h-6 {
+  height: 1.5rem;
 }
 
-.hahahaha {
-  display: none;
+.w-56 {
+  width: 14rem;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.bg-base-100 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+}
+
+.bg-primary-content {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--pc) / var(--tw-bg-opacity));
+}
+
+.stroke-current {
+  stroke: currentColor;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 * {
@@ -2266,34 +2361,18 @@ body {
   width: 100%;
   padding: 2rem;
   transition-property: background;
-  transition-duration: 4s;
+  transition-duration: 1.8s;
 }
 
 .menu {
   position: fixed;
   z-index: 1000;
-  width: 160px;
-  background: #1b1a1a;
-  border-radius: 5px;
   display: none;
-  list-style: none;
+  background: #1b1a1a;
 }
 
 .menu.open {
   display: block;
-}
-
-.menu .menu-item {
-  padding: 8px 10px;
-  font-size: 0.9rem;
-  color: #eee;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in;
-  border-radius: inherit;
-}
-
-.menu .menu-item:hover {
-  background: #343434;
 }
 
 .clicksCssDrawClick {
@@ -2305,6 +2384,31 @@ body {
   background-color: aquamarine;
   -webkit-animation: clicksCssDrawClickAnim 1.5s ease-in-out;
           animation: clicksCssDrawClickAnim 1.5s ease-in-out;
+}
+
+.alert {
+  -webkit-animation: appear 0.4s normal forwards ease-in-out;
+          animation: appear 0.4s normal forwards ease-in-out;
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes clicksCssDrawClickAnim {
