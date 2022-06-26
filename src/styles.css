@@ -2296,6 +2296,9 @@ body {
   background: #343434;
 }
 
+.hidden {
+  visibility: hidden;
+}
 .clicksCssDrawClick {
   position: absolute;
   z-index: 0;

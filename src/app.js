@@ -27,5 +27,6 @@ menuHTML.addEventListener('click', (e) => {
     .forEach((e) => e.remove());
   handleMenuClick(e, menuModules, menuHTML);
 });
+
 //#endregion
 //$("body").on("click", "a", function(e) { e.preventDefault() });
