@@ -77,5 +77,58 @@ export const RANDOM_HEX_BG_DARK = [
   '#6b1336',
   '#080a09',
 ];
+export const MODAL_ELEMENTS = [
+  {
+    tag: 'label',
+    name: 'label',
+    content: '',
+    attr: {
+      for: 'hk-modal',
+      class: 'btn modal-button',
+    },
+    parent: 'body',
+  },
+  {
+    tag: 'input',
+    name: 'checkbox',
+    content: '',
+    attr: {
+      id: 'hk-modal',
+      class: 'modal-toggle',
+      type: 'checkbox',
+    },
+    parent: 'body',
+  },
+  {
+    tag: 'div',
+    name: 'modal',
+    content: '',
+    attr: {
+      class: 'modal',
+    },
+    parent: 'body',
+  },
+  {
+    tag: 'div',
+    name: 'container',
+    content: '',
+    attr: {
+      class: 'modal-box relative',
+    },
+    parent: null,
+  },
 
+  {
+    tag: 'label',
+    name: 'close',
+    content: '✕',
+    attr: {
+      for: 'hk-modal',
+      class: 'btn btn-sm btn-circle absolute right-2 top-2',
+    },
+    parent: null,
+  },
+];
 //#endregion
+/*
+ */

@@ -40,12 +40,16 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 999em;
-  background-color: aquamarine;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.4);
   animation: clicksCssDrawClickAnim 1.5s ease-in-out;
 }
 
 .alert {
   animation: appear 0.4s normal forwards ease-in-out;
+}
+.modal-button[for='hk-modal'] {
+  display: none;
 }
 @keyframes appear {
   from {

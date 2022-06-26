@@ -4,13 +4,12 @@ import {
   removeMultipleEventListener,
   clicksStatAdd,
   clicksDrawClick,
+  createTag,
 } from '../utils';
-
+import { MODAL_ELEMENTS } from '../globals';
 export class ClicksModule extends Module {
   async trigger() {
     const clicks = [];
-
-    document.querySelectorAll('.clicksCssDrawClick').forEach((e) => e.remove());
 
     addMultipleEventListener(
       document.body,
@@ -32,16 +31,47 @@ export class ClicksModule extends Module {
       clicksDrawClick(event);
     }
 
-    function clicksResult(arr) {
-      const dblAmount = arr.filter((el) => el.type === 'dblclick').length;
-      const clcAmount =
-        arr.filter((el) => el.type === 'click').length - dblAmount * 2;
-      console.log(
-        `Total clicks ${
-          arr.length - dblAmount
-        } (${clcAmount} single, ${dblAmount} double). Event log:`
-      );
-      console.table(arr);
+    function clicksResult(clicksData) {
+      const moment = require('moment');
+      const modalDom = {};
+      // prettier-ignore
+      MODAL_ELEMENTS.forEach((e) => (modalDom[e.name] = createTag(
+       e.tag, e.content, e.attr, e.parent ? document.body : null)));
+      modalDom.modal.append(modalDom.container);
+      modalDom.container.append(modalDom.close);
+      modalDom.checkbox.checked = true;
+      modalDom.close.onclick = quit;
+
+      const dbTotal = clicksData.filter((e) => e.type === 'dblclick').length;
+      // prettier-ignore
+      const sgTotal = clicksData.filter((e) => e.type === 'click').length - dbTotal * 2;
+      // prettier-ignore
+      createTag('h3',`${clicksData.length - dbTotal} clicks, ${sgTotal} single, ${dbTotal} double`,
+      {class:'text-lg font-bold text-primary-content mb-2'}, modalDom.container)
+
+      // prettier-ignore
+      const modalTableContainer = createTag('div', '', 
+      { class: 'overflow-y-auto' }, modalDom.container);
+      // prettier-ignore
+      const modalTable = createTag('table','', {
+       class:'table table-compact w-full'}, modalTableContainer
+       )
+      modalTable.innerHTML =
+        '<thead><tr><th>Type</th><th>Hr : Min : Sec</th><th>X</th><th>Y</th></tr></thead>';
+      const modalTableBody = createTag('tbody', '', {}, modalTable);
+      let modalTableContent = '';
+      clicksData.forEach((e) => {
+        modalTableContent += `<tr><td>${e.type}</td><td>${moment(e.time).format(
+          'h : mm : ss.S'
+        )}</td><td>${e.x}</td><td>${e.y}</td></tr>`;
+      });
+      modalTableBody.innerHTML = modalTableContent;
+
+      function quit() {
+        [modalDom.modal, modalDom.checkbox, modalDom.label].forEach((e) =>
+          e.remove()
+        );
+      }
       removeMultipleEventListener(
         document.body,
         ['click', 'dblclick'],
