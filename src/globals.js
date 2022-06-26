@@ -86,6 +86,7 @@ export const RANDOM_HEX_BG_DARK = [
   '#611c9d',
   '#6b1336',
   '#080a09',
+  '#2A303C',
 ];
 //#endregion
 

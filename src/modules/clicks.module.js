@@ -47,7 +47,7 @@ export class ClicksModule extends Module {
       const sgTotal = clicksData.filter((e) => e.type === 'click').length - dbTotal * 2;
       // prettier-ignore
       createTag('h3',`${clicksData.length - dbTotal} clicks, ${sgTotal} single, ${dbTotal} double`,
-      {class:'text-lg font-bold text-primary-content mb-2'}, modalDom.container)
+      {class:'text-lg font-bold mb-2'}, modalDom.container)
 
       // prettier-ignore
       const modalTableContainer = createTag('div', '', 
