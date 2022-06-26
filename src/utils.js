@@ -148,11 +148,10 @@ export function splashScreen() {
     class:'splash-text glitch-text'
    }, splashWrapper)
   splashText.dataset.text = 'TEAM 25-1';
-  splashText.setAttribute('style', `width:${splashText.offsetWidth + 3}px`);
   splashText.style.visibility = 'visible';
   setTimeout(() => {
     splashWrapper.remove();
-  }, 5200);
+  }, 520000);
 }
 //#endregion
 
