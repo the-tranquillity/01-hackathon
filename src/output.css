@@ -3086,14 +3086,19 @@ body[dir="rtl"] .checkbox:checked,
   overflow-y: auto;
 }
 
-.bg-base-100 {
+.bg-base-300 {
   --tw-bg-opacity: 1;
-  background-color: hsl(var(--b1) / var(--tw-bg-opacity));
+  background-color: hsl(var(--b3, var(--b2)) / var(--tw-bg-opacity));
 }
 
 .bg-primary-content {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--pc) / var(--tw-bg-opacity));
+}
+
+.bg-info {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--in) / var(--tw-bg-opacity));
 }
 
 .bg-neutral {
@@ -3183,7 +3188,7 @@ body {
   position: fixed;
   z-index: 1000;
   display: none;
-  background: #1b1a1a;
+  /* background: #1b1a1a; */
 }
 
 .menu.open {
@@ -3203,8 +3208,26 @@ body {
 }
 
 .alert {
+  position: relative;
   -webkit-animation: appear 0.4s normal forwards ease-in-out;
           animation: appear 0.4s normal forwards ease-in-out;
+  overflow: hidden;
+  border-radius: 4px;
+  max-width: 400px;
+}
+
+.alert-progress {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 4px;
+  -webkit-animation: alertProgress linear forwards;
+          animation: alertProgress linear forwards;
+  -webkit-animation-duration: var(--ani-duration, 3s);
+          animation-duration: var(--ani-duration, 3s);
+  transform-origin: left;
 }
 
 .modal-button[for='hk-modal'] {
@@ -3380,5 +3403,25 @@ input.input-timer {
   to {
     transform: scale(2.5);
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes alertProgress {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes alertProgress {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scaleX(0);
   }
 }
