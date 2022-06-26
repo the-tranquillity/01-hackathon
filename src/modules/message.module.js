@@ -5,16 +5,18 @@ export class MessageModule extends Module {
   trigger() {
     console.log('trigger MessageModule init');
     const messages = [
-      'Lorem ipsum dolor sit amet',
-      'Curabitur tincidunt non orci quis aliquet.',
-      'Etiam fermentum nibh eu augue eleifend congue.',
-      'Aenean hendrerit molestie tempor. Nam molestie, ex vel bibendum consectetur',
-      'Vivamus commodo rhoncus metus.',
-      'Vel semper nulla ornare vel. Aliquam id velit vitae mauris tempus',
-      'Auctor sed sit amet est. Cras vehicula.',
-      'Nisl quis semper fringilla, arcu libero fringilla metus',
-      'At blandit enim dolor sagittis felis. Donec nibh enim, facilisis',
-      'Nec tortor quis, efficitur ultricies ex. Nulla id lobortis libero.',
+      'Жизнь - это то, что с тобой происходит, пока ты строишь планы. - Джон Леннон',
+      '80% успеха - это появиться в нужном месте в нужное время. - Вуди Аллен',
+      'Свобода ничего не стоит, если она не включает в себя свободу ошибаться. - Махатма Ганди',
+      'Стоит только поверить, что вы можете – и вы уже на полпути к цели. - Теодор Рузвельт',
+      'Коржики — они, конечно, лучше на вкус, чем на слух… - Джоэль Харрис (Сказки Дядюшки Римуса)',
+      'Для того чтобы во что-то верить, вовсе не обязательно знать, правда ли это. - Туве Янссон (Цикл о Муми-Троллях)',
+      'Взрослым никогда не бывает по-настоящему весело. Да и чем они заняты: скучной работой или модами, а говорят только о мозолях и подоходных налогах. - Астрид Линдгрен (Пеппи Длинныйчулок)',
+      'Любить незнакомые места легко: мы принимаем их такими, какие они есть, и не требуем ничего, кроме новых впечатлений. - Макс Фрай',
+      'Вы найдете хорошее в плохом, когда будете спокойны и пассивны. - Йода',
+      'Не пробуй. Делай или не делай. Нет никаких попыток. — Йода',
+      'Счастье – это не нечто готовое. Счастье зависит только от ваших действий. - Далай Лама',
+      'Лучшее время, чтобы посадить дерево, было 20 лет назад. Следующий подходящий момент - сегодня. - Китайская пословица'
     ];
     let randomId = random(0, messages.length);
     const toast = createTag(
