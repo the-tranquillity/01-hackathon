@@ -6,7 +6,7 @@ import { TimerModule } from './modules/timer.module';
 import { ShapeModule } from './modules/shape.module';
 //#endregion
 
-//#region Constants
+//#region Basic Constants
 export const OPEN_CLASS = 'open';
 export const MENU_SELECTOR = '#menu';
 export const ELEMENTS = [
@@ -36,7 +36,9 @@ export const ELEMENTS = [
     type: MessageModule,
   },
 ];
+//#endregion
 
+//#region Colors
 //* https://huemint.com/
 export const RANDOM_HEX_BG = [
   '#94d7e1',
@@ -69,6 +71,7 @@ export const RANDOM_HEX_BG = [
   '#d8dbd7',
   '#dce2e9',
 ];
+
 export const RANDOM_HEX_BG_DARK = [
   '#0f2778',
   '#5cc39c',
@@ -77,6 +80,9 @@ export const RANDOM_HEX_BG_DARK = [
   '#6b1336',
   '#080a09',
 ];
+//#endregion
+
+//#region Nodes
 export const MODAL_ELEMENTS = [
   {
     tag: 'label',
@@ -129,7 +135,7 @@ export const MODAL_ELEMENTS = [
     parent: null,
   },
 ];
-//#endregion
+
 export const TIMER_ELEMENTS = [
   {
     tag: 'form',
@@ -232,3 +238,4 @@ export const TIMER_ELEMENTS = [
     parent: null,
   },
 ];
+//#endregion

@@ -29,4 +29,3 @@ menuHTML.addEventListener('click', (e) => {
 });
 
 //#endregion
-//$("body").on("click", "a", function(e) { e.preventDefault() });
